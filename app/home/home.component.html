@@ -4,11 +4,14 @@
 <GridLayout rows="*, auto" [backgroundColor]="tabList[currentTabIndex].backgroundColor">
     <ScrollView row="0">
         <StackLayout>
-
+          <!-- main content -->
         </StackLayout>
     </ScrollView>
 
+    <!-- bottom tabs -->
     <GridLayout row="1" height="auto" columns="*, *, *, *, *">
+      
+        <!-- base layer -->
         <AbsoluteLayout col="0" colSpan="5" verticalAlignment="bottom">
             <GridLayout #tabBGContainer columns="auto, 10, auto, 10, auto">
                 <GridLayout #leftTabs col="0" colSpan="2" height="80"
@@ -20,6 +23,8 @@
                 <GridLayout #rightTabs col="3" colSpan="4" height="80"
                     [backgroundColor]="tabContainer.backgroundColor"
                     verticalAlignment="bottom" borderRadius="68 0 0 0"></GridLayout>
+
+                <!-- focus circle -->
                 <GridLayout #centerCircle col="1" colSpan="3" height="100"
                     width="100" [backgroundColor]="tabList[currentTabIndex].backgroundColor"
                     borderRadius="50" verticalAlignment="bottom" marginBottom="10">
@@ -28,8 +33,11 @@
                         [backgroundColor]="tabContainer.focusColor"
                         borderRadius="45"></GridLayout>
                 </GridLayout>
+
             </GridLayout>
         </AbsoluteLayout>
+
+        <!-- tab contents -->
         <GridLayout #tabContents *ngFor="let item of tabList; let i = index"
             [col]="i" marginTop="20" (tap)="onBottomNavTap(i)"
             verticalAlignment="middle">
@@ -37,6 +45,7 @@
                 horizontalAlignment="center" [color]="item.color" fontSize="20"></Label>
         </GridLayout>
 
+        <!-- pan layer -->
         <GridLayout #dragCircle column="0" colSpan="5" (pan)="onCenterCirclePan($event)"
             verticalAlignment="center" horizontalAlignment="center" height="90"
             width="90" backgroundColor="transparent" borderRadius="45"></GridLayout>
