@@ -1,0 +1,62 @@
+{
+    "description": "NativeScript Application",
+    "license": "SEE LICENSE IN <your-license-filename>",
+    "readme": "NativeScript Application",
+    "repository": "<fill-your-repository-here>",
+    "nativescript": {
+        "id": "org.nativescript.blankng",
+        "tns-android": {
+            "version": "5.4.0"
+        },
+        "tns-ios": {
+            "version": "5.4.0"
+        },
+        "playground": {
+            "id": "1425016550.1513004693"
+        }
+    },
+    "dependencies": {
+        "@angular/animations": "8.0.0",
+        "@angular/common": "8.0.0",
+        "@angular/compiler": "8.0.0",
+        "@angular/core": "8.0.0",
+        "@angular/forms": "8.0.0",
+        "@angular/http": "~8.0.0-beta.10",
+        "@angular/platform-browser": "8.0.0",
+        "@angular/platform-browser-dynamic": "8.0.0",
+        "@angular/router": "8.0.0",
+        "@progress-nativechat/nativescript-nativechat": "2.0.4",
+        "kinvey-nativescript-sdk": "4.2.0",
+        "nativescript-accelerometer": "2.0.1",
+        "nativescript-angular": "8.0.0",
+        "nativescript-background-http": "3.4.1",
+        "nativescript-camera": "4.5.0",
+        "nativescript-image": "2.1.3",
+        "nativescript-geolocation": "5.1.0",
+        "nativescript-imagepicker": "6.2.0",
+        "nativescript-intl": "3.0.0",
+        "nativescript-iqkeyboardmanager": "1.5.1",
+        "nativescript-social-share": "1.5.2",
+        "nativescript-theme-core": "1.0.6",
+        "nativescript-ui-autocomplete": "4.1.0",
+        "nativescript-ui-calendar": "4.0.0",
+        "nativescript-ui-chart": "4.0.2",
+        "nativescript-ui-dataform": "4.0.1",
+        "nativescript-ui-gauge": "4.0.0",
+        "nativescript-ui-listview": "6.3.2",
+        "nativescript-ui-sidedrawer": "6.0.0",
+        "reflect-metadata": "0.1.13",
+        "rxjs": "6.5.2",
+        "rxjs-compat": "6.5.2",
+        "tns-core-modules": "5.4.2",
+        "zone.js": "0.9.1"
+    },
+    "devDependencies": {
+        "@angular/compiler-cli": "8.0.0",
+        "@ngtools/webpack": "~8.0.2",
+        "nativescript-dev-typescript": "0.10.0",
+        "nativescript-dev-webpack": "0.24.1",
+        "tns-platform-declarations": "5.4.2",
+        "typescript": "3.4.5"
+    }
+}

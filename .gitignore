@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+tmp
+node_modules
+platforms
+report
+*.js
+!webpack.config.js
+*.log
+*.keystore
