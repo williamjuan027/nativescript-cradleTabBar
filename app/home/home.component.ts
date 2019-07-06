@@ -36,7 +36,7 @@ export class HomeComponent implements AfterViewInit {
     { text: String.fromCharCode(0xf075), backgroundColor: '#E6A938', color: '#000' },
     { text: String.fromCharCode(0xf259), backgroundColor: '#C9449D', color: '#000' },
     { text: String.fromCharCode(0xf1d8), backgroundColor: '#4195AA', color: '#000' },
-    { text: String.fromCharCode(0xf073), backgroundColor: '#4195AA', color: '#000' }
+    { text: String.fromCharCode(0xf073), backgroundColor: '#4A9F6E', color: '#000' }
   ];
 
   currentTabIndex: number = 0;
