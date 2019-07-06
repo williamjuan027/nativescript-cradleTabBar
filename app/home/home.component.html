@@ -10,7 +10,7 @@
 
     <!-- bottom tabs -->
     <GridLayout row="1" height="auto" columns="*, *, *, *, *">
-      
+
         <!-- base layer -->
         <AbsoluteLayout col="0" colSpan="5" verticalAlignment="bottom">
             <GridLayout #tabBGContainer columns="auto, 10, auto, 10, auto">
@@ -41,7 +41,7 @@
         <GridLayout #tabContents *ngFor="let item of tabList; let i = index"
             [col]="i" marginTop="20" (tap)="onBottomNavTap(i)"
             verticalAlignment="middle">
-            <Label [text]="item.text" verticalAlignment="middle"
+            <Label class="fa-regular" [text]="item.text" verticalAlignment="middle"
                 horizontalAlignment="center" [color]="item.color" fontSize="20"></Label>
         </GridLayout>
 

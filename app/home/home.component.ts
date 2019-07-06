@@ -24,7 +24,7 @@ export class HomeComponent implements AfterViewInit {
   // Pan Helper
   prevDeltaX: number = 0;
 
-  animationCurve = AnimationCurve.cubicBezier(.38,.47,0,1);
+  animationCurve = AnimationCurve.cubicBezier(.38, .47, 0, 1);
 
   // Tab Contents and Properties
   tabContainer = {
@@ -32,11 +32,11 @@ export class HomeComponent implements AfterViewInit {
     focusColor: '#fff'
   };
   tabList: { text: string, icon?: string, color?: string, backgroundColor: string, fadeColor?: string }[] = [
-    { text: 'A', backgroundColor: '#5B37B7', color: '#000' },
-    { text: 'B', backgroundColor: '#E6A938', color: '#000' },
-    { text: 'C', backgroundColor: '#C9449D', color: '#000' },
-    { text: 'D', backgroundColor: '#4195AA', color: '#000' },
-    { text: 'E', backgroundColor: '#4195AA', color: '#000' }
+    { text: String.fromCharCode(0xf080), backgroundColor: '#5B37B7', color: '#000' },
+    { text: String.fromCharCode(0xf075), backgroundColor: '#E6A938', color: '#000' },
+    { text: String.fromCharCode(0xf259), backgroundColor: '#C9449D', color: '#000' },
+    { text: String.fromCharCode(0xf1d8), backgroundColor: '#4195AA', color: '#000' },
+    { text: String.fromCharCode(0xf073), backgroundColor: '#4195AA', color: '#000' }
   ];
 
   currentTabIndex: number = 0;
