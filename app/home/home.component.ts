@@ -61,7 +61,7 @@ export class HomeComponent implements AfterViewInit {
       const tabContentsArr = this.tabContents.toArray();
 
       // set unfocus to previous index
-      tabContentsArr[this.currentTabIndex].nativeElement.animate(this.getUnfocusAnimation());
+      tabContentsArr[this.currentTabIndex].nativeElement.animate(this.getUnfocusAnimation(this.currentTabIndex, duration));
 
       // set focus to current index
       tabContentsArr[index].nativeElement.animate(this.getFocusAnimation(index, duration));
