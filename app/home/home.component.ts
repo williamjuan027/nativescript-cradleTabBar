@@ -24,8 +24,7 @@ export class HomeComponent implements AfterViewInit {
   // Pan Helper
   prevDeltaX: number = 0;
 
-  //animationCurve = AnimationCurve.cubicBezier(1, .02, .45, .93);
-  animationCurve = AnimationCurve.cubicBezier(.17, .67, .83, .67);
+  animationCurve = AnimationCurve.cubicBezier(.38,.47,0,1);
 
   // Tab Contents and Properties
   tabContainer = {
@@ -57,7 +56,7 @@ export class HomeComponent implements AfterViewInit {
   // User Interaction
 
   // Tap on a one of the tabs
-  onBottomNavTap(index: number, duration: number = 100): void {
+  onBottomNavTap(index: number, duration: number = 300): void {
     if (this.currentTabIndex !== index) {
       const tabContentsArr = this.tabContents.toArray();
 
@@ -134,7 +133,7 @@ export class HomeComponent implements AfterViewInit {
     return {
       translate: { x: this.getTabTranslateX(index), y: 0 },
       curve: this.animationCurve,
-      duration: duration ? duration : 100
+      duration: duration
     };
   }
 
