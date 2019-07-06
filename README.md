@@ -4,4 +4,4 @@
 <br/>
 [Link](https://play.nativescript.org/?template=play-ng&id=xZetHi&v=23) to Playground Demo
 
-![demo](https://github.com/williamjuan027/nativescript-cradleTabBar/blob/master/screenshots/ns-cradletabbar.png)
+![demo](https://github.com/williamjuan027/nativescript-cradleTabBar/blob/master/screenshots/ns-cradletabbar.gif)
