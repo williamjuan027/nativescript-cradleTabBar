@@ -11,8 +11,8 @@ This app is a demonstration on how to create a cradle like animation for bottom 
 ## Development
 This app is built with the NativeScript CLI. Once you have the [CLI](https://docs.nativescript.org/start/quick-setup) installed, start by cloning the repo:  
 ```
-git clone https://github.com/williamjuan027/ns-menu-rotate-sample
-cd ns-menu-rotate-sample
+git clone https://github.com/williamjuan027/nativescript-cradleTabBar
+cd nativescript-cradleTabBar
 ```
 
 From there you can use the `run` command to run the app on iOS:  
