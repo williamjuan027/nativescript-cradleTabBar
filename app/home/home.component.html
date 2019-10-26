@@ -1,15 +1,43 @@
 <ActionBar title="Home" class="action-bar">
 </ActionBar>
 
-<GridLayout rows="*, auto" [backgroundColor]="tabList[currentTabIndex].backgroundColor">
-    <ScrollView row="0">
-        <StackLayout>
-          <!-- main content -->
-        </StackLayout>
-    </ScrollView>
+<GridLayout>
+    <GridLayout>
+        <Tabs #tabs [selectedIndex]="defaultSelected" (selectedIndexChanged)="onSelectedIndexChanged($event)">
+            <TabContentItem [backgroundColor]="tabList[0].backgroundColor">
+                <StackLayout>
+                    <Label text="Bottom Nav Content 1" class="h1 text-center p-t-20"></Label>
+                </StackLayout>
+            </TabContentItem>
+
+            <TabContentItem [backgroundColor]="tabList[1].backgroundColor">
+                <StackLayout>
+                    <Label text="Bottom Nav Content 2" class="h1 text-center p-t-20"></Label>
+                </StackLayout>
+            </TabContentItem>
+
+            <TabContentItem [backgroundColor]="tabList[2].backgroundColor">
+                <StackLayout>
+                    <Label text="Bottom Nav Content 3" class="h1 text-center p-t-20"></Label>
+                </StackLayout>
+            </TabContentItem>
+
+            <TabContentItem [backgroundColor]="tabList[3].backgroundColor">
+                <StackLayout>
+                    <Label text="Bottom Nav Content 4" class="h1 text-center p-t-20"></Label>
+                </StackLayout>
+            </TabContentItem>
+
+            <TabContentItem [backgroundColor]="tabList[4].backgroundColor">
+                <StackLayout>
+                    <Label text="Bottom Nav Content 5" class="h1 text-center p-t-20"></Label>
+                </StackLayout>
+            </TabContentItem>
+        </Tabs>
+    </GridLayout>
 
     <!-- bottom tabs -->
-    <GridLayout row="1" height="auto" columns="*, *, *, *, *">
+    <GridLayout height="auto" verticalAlignment="bottom" columns="*, *, *, *, *">
 
         <!-- base layer -->
         <AbsoluteLayout col="0" colSpan="5" verticalAlignment="bottom">
