@@ -1,12 +1,12 @@
 # Nativescript Cradle Tab Bar
 
-This app is a demonstration on how to create a cradle like animation for bottom tab bars.
+This app is a demonstration on how to create a cradle like animation for bottom tab bars (as featured in [Tabs and BottomNavigation article](https://www.nativescript.org/blog/tabs-and-bottomnavigation-nativescripts-two-new-components) by [Martin Yankov](https://www.nativescript.org/blog/author/martin-yankov)).
 
 ![demo](https://github.com/williamjuan027/nativescript-cradleTabBar/blob/master/screenshots/ns-cradletabbar.gif)
 
 [Link](https://nativescripting.com/posts/cradle-tab-bar-animation-in-nativescript) to Tutorial
 <br/>
-[Link](https://play.nativescript.org/?template=play-ng&id=xZetHi&v=23) to Playground Demo
+[Link](https://play.nativescript.org/?template=play-ng&id=YfZPr1) to Playground Demo
 
 ## Development
 This app is built with the NativeScript CLI. Once you have the [CLI](https://docs.nativescript.org/start/quick-setup) installed, start by cloning the repo:  
