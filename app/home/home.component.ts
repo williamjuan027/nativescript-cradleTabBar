@@ -51,7 +51,13 @@ export class HomeComponent implements AfterViewInit {
     // Hooks
 
     ngAfterViewInit(): void {
-        this.initializeTabBar();
+        // this.initializeTabBar();
+    }
+
+    onTabsLoaded(args): void {
+      if (args.object.ios) {
+        args.object.ios.tabBar.hidden = true;
+      }
     }
 
     // --------------------------------------------------------------------
@@ -59,6 +65,7 @@ export class HomeComponent implements AfterViewInit {
 
     // MY: Tabs selected index is changed, e.g. when swipe to navigate.
     onSelectedIndexChanged(args: SelectedIndexChangedEventData): void {
+      // TODO: gets fired multiple times with the wrong index
         if (args.newIndex !== this.currentTabIndex) {
             this.onBottomNavTap(args.newIndex);
         }
@@ -70,22 +77,22 @@ export class HomeComponent implements AfterViewInit {
             const tabContentsArr = this.tabContents.toArray();
 
             // set unfocus to previous index
-            tabContentsArr[this.currentTabIndex].nativeElement.animate(this.getUnfocusAnimation(this.currentTabIndex, duration));
+            tabContentsArr[this.currentTabIndex].nativeElement.animate(this.getUnfocusAnimation(this.currentTabIndex, duration)).catch(e => {});
 
             // set focus to current index
-            tabContentsArr[index].nativeElement.animate(this.getFocusAnimation(index, duration));
+            tabContentsArr[index].nativeElement.animate(this.getFocusAnimation(index, duration)).catch(e => {});
         }
 
         // MY: Change the selected index of Tabs when tap on tab strip
-        if (this.tabs.nativeElement.selectedIndex !== index) {
-            this.tabs.nativeElement.selectedIndex = index;
-        }
+        // if (this.tabs.nativeElement.selectedIndex !== index) {
+        //     this.tabs.nativeElement.selectedIndex = index;
+        // }
 
-        this.centerCircle.nativeElement.animate(this.getSlideAnimation(index, duration));
-        this.leftTabs.nativeElement.animate(this.getSlideAnimation(index, duration));
-        this.rightTabs.nativeElement.animate(this.getSlideAnimation(index, duration));
-        this.centerPatch.nativeElement.animate(this.getSlideAnimation(index, duration));
-        this.dragCircle.nativeElement.animate(this.getSlideAnimation(index, duration));
+        this.centerCircle.nativeElement.animate(this.getSlideAnimation(index, duration)).catch(e => {});
+        this.leftTabs.nativeElement.animate(this.getSlideAnimation(index, duration)).catch(e => {});
+        this.rightTabs.nativeElement.animate(this.getSlideAnimation(index, duration)).catch(e => {});
+        this.centerPatch.nativeElement.animate(this.getSlideAnimation(index, duration)).catch(e => {});
+        this.dragCircle.nativeElement.animate(this.getSlideAnimation(index, duration)).catch(e => {});
 
         // set current index to new index
         this.currentTabIndex = index;
@@ -131,7 +138,7 @@ export class HomeComponent implements AfterViewInit {
     // --------------------------------------------------------------------
     // Tab bar helpers
 
-    initializeTabBar(): void {
+    ontabContentsLoaded(args): void {
         // set up base layer
         this.leftTabs.nativeElement.width = screen.mainScreen.widthDIPs;
         this.rightTabs.nativeElement.width = screen.mainScreen.widthDIPs;
@@ -144,6 +151,7 @@ export class HomeComponent implements AfterViewInit {
         tabContentsArr[this.defaultSelected].nativeElement.scaleX = 1.5;
         tabContentsArr[this.defaultSelected].nativeElement.scaleY = 1.5;
         tabContentsArr[this.defaultSelected].nativeElement.translateY = - 15;
+        // this.tabs.nativeElement.selectedIndex = this.defaultSelected;
         this.currentTabIndex = this.defaultSelected;
     }
 
