@@ -1,7 +1,8 @@
 {
     "android": {
         "v8Flags": "--expose_gc",
-        "forceLog": true
+        "forceLog": true,
+        "markingMode": "none"
     },
     "main": "main.js",
     "name": "tns-template-blank-ng",

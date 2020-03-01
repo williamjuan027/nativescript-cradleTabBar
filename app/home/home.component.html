@@ -1,83 +1,75 @@
-<ActionBar title="Home" class="action-bar">
+<ActionBar title="Home" class="action-bar" flat="true">
 </ActionBar>
 
 <GridLayout>
-    <GridLayout>
-        <Tabs #tabs [selectedIndex]="defaultSelected" (selectedIndexChanged)="onSelectedIndexChanged($event)">
-            <TabContentItem [backgroundColor]="tabList[0].backgroundColor">
-                <StackLayout>
-                    <Label text="Bottom Nav Content 1" class="h1 text-center p-t-20"></Label>
-                </StackLayout>
-            </TabContentItem>
+  <GridLayout>
+    <Tabs #tabs (selectedIndexChanged)="onSelectedIndexChanged($event)" [tabsPosition]="isAndroid ? 'top' : 'bottom'" swipeEnabled="false" (loaded)="onTabsLoaded($event)">
 
-            <TabContentItem [backgroundColor]="tabList[1].backgroundColor">
-                <StackLayout>
-                    <Label text="Bottom Nav Content 2" class="h1 text-center p-t-20"></Label>
-                </StackLayout>
-            </TabContentItem>
+    <!-- NOTE: this is a wrokaround to stop android from crashing with items of undefined error -->
+      <TabStrip height="0">
+        <TabStripItem *ngFor="let item of tabList">
+        </TabStripItem>
+      </TabStrip>
 
-            <TabContentItem [backgroundColor]="tabList[2].backgroundColor">
-                <StackLayout>
-                    <Label text="Bottom Nav Content 3" class="h1 text-center p-t-20"></Label>
-                </StackLayout>
-            </TabContentItem>
+      <TabContentItem>
+        <StackLayout [backgroundColor]="tabList[0].backgroundColor">
+          <Label text="Bottom Nav Content 1" class="h1 text-center p-t-20"></Label>
+        </StackLayout>
+      </TabContentItem>
 
-            <TabContentItem [backgroundColor]="tabList[3].backgroundColor">
-                <StackLayout>
-                    <Label text="Bottom Nav Content 4" class="h1 text-center p-t-20"></Label>
-                </StackLayout>
-            </TabContentItem>
+      <TabContentItem>
+        <StackLayout [backgroundColor]="tabList[1].backgroundColor">
+          <Label text="Bottom Nav Content 2" class="h1 text-center p-t-20"></Label>
+        </StackLayout>
+      </TabContentItem>
 
-            <TabContentItem [backgroundColor]="tabList[4].backgroundColor">
-                <StackLayout>
-                    <Label text="Bottom Nav Content 5" class="h1 text-center p-t-20"></Label>
-                </StackLayout>
-            </TabContentItem>
-        </Tabs>
-    </GridLayout>
+      <TabContentItem>
+        <StackLayout [backgroundColor]="tabList[2].backgroundColor">
+          <Label text="Bottom Nav Content 3" class="h1 text-center p-t-20"></Label>
+        </StackLayout>
+      </TabContentItem>
 
-    <!-- bottom tabs -->
-    <GridLayout height="auto" verticalAlignment="bottom" columns="*, *, *, *, *">
+      <TabContentItem>
+        <StackLayout [backgroundColor]="tabList[3].backgroundColor">
+          <Label text="Bottom Nav Content 4" class="h1 text-center p-t-20"></Label>
+        </StackLayout>
+      </TabContentItem>
 
-        <!-- base layer -->
-        <AbsoluteLayout col="0" colSpan="5" verticalAlignment="bottom">
-            <GridLayout #tabBGContainer columns="auto, 10, auto, 10, auto">
-                <GridLayout #leftTabs col="0" colSpan="2" height="80"
-                    [backgroundColor]="tabContainer.backgroundColor"
-                    verticalAlignment="bottom" borderRadius="0 68 0 0"></GridLayout>
-                <GridLayout #centerPatch col="1" colSpan="3" height="40"
-                    [backgroundColor]="tabContainer.backgroundColor"
-                    verticalAlignment="bottom"></GridLayout>
-                <GridLayout #rightTabs col="3" colSpan="4" height="80"
-                    [backgroundColor]="tabContainer.backgroundColor"
-                    verticalAlignment="bottom" borderRadius="68 0 0 0"></GridLayout>
+      <TabContentItem>
+        <StackLayout [backgroundColor]="tabList[4].backgroundColor">
+          <Label text="Bottom Nav Content 5" class="h1 text-center p-t-20"></Label>
+        </StackLayout>
+      </TabContentItem>
 
-                <!-- focus circle -->
-                <GridLayout #centerCircle col="1" colSpan="3" height="100"
-                    width="100" [backgroundColor]="tabList[currentTabIndex].backgroundColor"
-                    borderRadius="50" verticalAlignment="bottom" marginBottom="10">
-                    <GridLayout verticalAlignment="center"
-                        horizontalAlignment="center" height="90" width="90"
-                        [backgroundColor]="tabContainer.focusColor"
-                        borderRadius="45"></GridLayout>
-                </GridLayout>
+    </Tabs>
+  </GridLayout>
 
-            </GridLayout>
-        </AbsoluteLayout>
+  <!-- bottom tabs -->
+  <GridLayout height="auto" verticalAlignment="bottom" columns="*, *, *, *, *">
 
-        <!-- tab contents -->
-        <GridLayout #tabContents *ngFor="let item of tabList; let i = index"
-            [col]="i" marginTop="20" (tap)="onBottomNavTap(i)"
-            verticalAlignment="middle">
-            <Label class="fa-regular" [text]="item.text" verticalAlignment="middle"
-                horizontalAlignment="center" [color]="item.color" fontSize="20"></Label>
+    <!-- base layer -->
+    <AbsoluteLayout col="0" colSpan="5" verticalAlignment="bottom">
+      <GridLayout #tabBGContainer columns="auto, 10, auto, 10, auto">
+        <GridLayout #leftTabs col="0" colSpan="2" height="80" [backgroundColor]="tabContainer.backgroundColor" verticalAlignment="bottom" borderRadius="0 68 0 0"></GridLayout>
+        <GridLayout #centerPatch col="1" colSpan="3" height="40" [backgroundColor]="tabContainer.backgroundColor" verticalAlignment="bottom"></GridLayout>
+        <GridLayout #rightTabs col="3" colSpan="4" height="80" [backgroundColor]="tabContainer.backgroundColor" verticalAlignment="bottom" borderRadius="68 0 0 0"></GridLayout>
+
+        <!-- focus circle -->
+        <GridLayout #centerCircle col="1" colSpan="3" height="100" width="100" borderRadius="50" verticalAlignment="bottom" marginBottom="10">
+          <GridLayout verticalAlignment="center" horizontalAlignment="center" height="90" width="90" [backgroundColor]="tabContainer.focusColor" borderRadius="45"></GridLayout>
         </GridLayout>
 
-        <!-- pan layer -->
-        <GridLayout #dragCircle column="0" colSpan="5" (pan)="onCenterCirclePan($event)"
-            verticalAlignment="center" horizontalAlignment="center" height="90"
-            width="90" backgroundColor="transparent" borderRadius="45"></GridLayout>
+      </GridLayout>
+    </AbsoluteLayout>
 
+    <!-- tab contents -->
+    <GridLayout #tabContents *ngFor="let item of tabList; let i = index" [col]="i" marginTop="20" (tap)="onBottomNavTap(i)" verticalAlignment="middle" (loaded)="ontabContentsLoaded($event)">
+      <Label class="fa-regular" [text]="item.text" verticalAlignment="middle" horizontalAlignment="center" [color]="item.color" fontSize="20"></Label>
     </GridLayout>
+
+    <!-- pan layer -->
+    <GridLayout #dragCircle column="0" colSpan="5" (pan)="onCenterCirclePan($event)" verticalAlignment="center" horizontalAlignment="center" height="90" width="90" backgroundColor="transparent" borderRadius="45"></GridLayout>
+
+  </GridLayout>
 
 </GridLayout>
