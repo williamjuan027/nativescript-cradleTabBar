@@ -3,11 +3,10 @@
 
 <GridLayout>
   <GridLayout>
-    <!-- <Tabs #tabs [selectedIndex]="defaultSelected" (selectedIndexChanged)="onSelectedIndexChanged($event)" tabsPosition="bottom" (loaded)="onTabsLoaded($event)"> -->
-    <Tabs #tabs [selectedIndex]="currentTabIndex" (selectedIndexChanged)="onSelectedIndexChanged($event)" tabsPosition="bottom" (loaded)="onTabsLoaded($event)">
-    <!-- <Tabs #tabs swipeEnabled="false" (selectedIndexChanged)="onSelectedIndexChanged($event)" tabsPosition="top" (loaded)="onTabsLoaded($event)"> -->
+    <Tabs #tabs (selectedIndexChanged)="onSelectedIndexChanged($event)" [tabsPosition]="isAndroid ? 'top' : 'bottom'" swipeEnabled="false" (loaded)="onTabsLoaded($event)">
 
-      <TabStrip>
+    <!-- NOTE: this is a wrokaround to stop android from crashing with items of undefined error -->
+      <TabStrip height="0">
         <TabStripItem *ngFor="let item of tabList">
         </TabStripItem>
       </TabStrip>
@@ -56,7 +55,7 @@
         <GridLayout #rightTabs col="3" colSpan="4" height="80" [backgroundColor]="tabContainer.backgroundColor" verticalAlignment="bottom" borderRadius="68 0 0 0"></GridLayout>
 
         <!-- focus circle -->
-        <GridLayout #centerCircle col="1" colSpan="3" height="100" width="100" [backgroundColor]="tabList[currentTabIndex].backgroundColor" borderRadius="50" verticalAlignment="bottom" marginBottom="10">
+        <GridLayout #centerCircle col="1" colSpan="3" height="100" width="100" borderRadius="50" verticalAlignment="bottom" marginBottom="10">
           <GridLayout verticalAlignment="center" horizontalAlignment="center" height="90" width="90" [backgroundColor]="tabContainer.focusColor" borderRadius="45"></GridLayout>
         </GridLayout>
 
